@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>零售客户普法小课堂</title>
+    <meta name="description" content="零售客户普法小课堂 - 守法经营，诚信为本">
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+            padding: 10px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .story-content {
+            padding: 20px 15px;
+            font-size: 1rem;
+        }
+        
+        .scene {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .character {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        .dialogue {
+            color: #2c3e50;
+            margin: 8px 0;
+            padding-left: 15px;
+        }
+        
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .choice-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .choice-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .outcome {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .positive {
+            background: #e8f5e8;
+            border-left-color: #27ae60;
+        }
+        
+        .negative {
+            background: #fde8e8;
+            border-left-color: #e74c3c;
+        }
+        
+        .restart-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 15px auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .restart-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .scene-title {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .tip {
+            text-align: center;
+            margin: 15px 0;
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        /* 微信分享提示 */
+        .wechat-tip {
+            background: #f0f7ff;
+            border: 1px solid #d0e3ff;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #1890ff;
+        }
+        
+        /* 响应式调整 */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .story-content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>零售客户普法小课堂</h1>
+            <div class="subtitle">守法经营 · 诚信为本 · 规范操作</div>
+        </div>
+        
+        <div class="wechat-tip">
+            👉 点击右上角"..."可分享给其他零售客户
+        </div>
+        
+        <div class="story-content">
+            <div id="opening-scene">
+                <div class="scene">
+                    <h2 class="scene-title">开幕式</h2>
+                    <p>清晨，阳光洒在"明诚超市"的招牌上。你是这家社区超市的老板<strong>李伟</strong>，经营卷烟已经五年了。今天像往常一样开门营业，你深知作为卷烟零售户，守法经营是生命线。</p>
+                    
+                    <p>这时，你的第一位顾客走了进来。他是老熟人<strong>张伯</strong>。</p>
+                    
+                    <div class="dialogue">
+                        <span class="character">张伯：</span>"小李，来包'常青树'，还是老价钱吧？"
+                    </div>
+                    
+                    <div class="dialogue">
+                        <span class="character">你：</span>"是啊张伯，明码实价，童叟无欺。"
+                    </div>
+                    
+                    <div class="tip">
+                        (故事从这里开始分支，你的选择将决定李伟的未来…)
+                    </div>
+                    
+                    <div class="choices">
+                        <button class="choice-btn" onclick="showScene('scene1')">场景一：大宗采购请求</button>
+                        <button class="choice-btn" onclick="showScene('scene2')">场景二：未成年人购烟</button>
+                        <button class="choice-btn" onclick="showScene('scene3')">场景三：许可证管理</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 场景一 -->
+            <div id="scene1" class="scene" style="display: none;">
+                <h2 class="scene-title">场景一：大宗采购请求</h2>
+                <p>张伯刚走，一个穿着得体的陌生男子走进店里，神色匆匆。</p>
+                
+                <div class="dialogue">
+                    <span class="character">陌生人：</span>"老板，你这儿'中华'有多少？我全要了，急着办事用。每包我多加五块钱！"
+                </div>
+                
+                <p>你心里快速盘算了一下。按公司规定，这是明显的价格违规和大宗卷烟异常流动。但这笔生意利润可观，而且对方看起来确实很急。</p>
+                
+                <p><strong>你会怎么做？</strong></p>
+                
+                <div class="choices">
+                    <button class="choice-btn" onclick="showOutcome('outcome1a')">坚守原则，按规定办理</button>
+                    <button class="choice-btn" onclick="showOutcome('outcome1b')">心动应允，做成这笔生意</button>
+                </div>
+            </div>
+            
+            <!-- 场景二 -->
+            <div id="scene2" class="scene" style="display: none;">
+                <h2 class="scene-title">场景二：未成年人购烟</h2>
+                <p>一个看起来年纪不大的男孩走进店里，神情有些紧张。</p>
+                
+                <div class="dialogue">
+                    <span class="character">男孩：</span>"老板，买包烟。"
+                </div>
+                
+                <p>你注意到他穿着校服，看起来可能还未成年。根据《未成年人保护法》，不得向未成年人销售烟草制品。</p>
+                
+                <div class="choices">
+                    <button class="choice-btn" onclick="showOutcome('outcome2a')">要求出示身份证件</button>
+                    <button class="choice-btn" onclick="showOutcome('outcome2b')">觉得麻烦，直接售卖</button>
+                </div>
+            </div>
+            
+            <!-- 场景三 -->
+            <div id="scene3" class="scene" style="display: none;">
+                <h2 class="scene-title">场景三：许可证管理</h2>
+                <p>你的烟草专卖零售许可证即将到期，需要办理延续手续。</p>
+                
+                <p>此时正值经营旺季，你非常忙碌。一位朋友告诉你，可以找"中介"代办，虽然收费高些，但省时省力。</p>
+                
+                <div class="dialogue">
+                    <span class="character">朋友：</span>"现在都找中介办，又快又方便，多花几百块钱而已。"
+                </div>
+                
+                <p>根据规定，许可证延续需要本人或合法委托代理人办理，不得通过非法中介。</p>
+                
+                <div class="choices">
+                    <button class="choice-btn" onclick="showOutcome('outcome3a')">亲自按规定办理延续</button>
+                    <button class="choice-btn" onclick="showOutcome('outcome3b')">找中介代办图省事</button>
+                </div>
+            </div>
+            
+            <!-- 结局 -->
+            <div id="outcome1a" class="outcome positive" style="display: none;">
+                <h3>👍 坚守原则 - 正确选择！</h3>
+                <p>听了你的话，陌生人愣了一下，随即笑了。</p>
+                
+                <div class="dialogue">
+                    <span class="character">陌生人：</span>"老板，你真是个实在人。行，就按规矩来，我确实是单位搞活动用，信息可以登记。"
+                </div>
+                
+                <p>你按照规定流程做好了登记，并按标准价格完成了交易。虽然每包少赚了五块，但你心里非常踏实。</p>
+                
+                <p>几天后，客户经理小陈来访。</p>
+                
+                <div class="dialogue">
+                    <span class="character">小陈：</span>"李老板，我得好好表扬你！上次那个采购方后来给我们反馈了，说你这儿特别规范，还主动宣传了防止卷烟外流的政策，给我们片区树立了正面形象！公司正在评选'诚信示范户'，我准备把你的名字报上去，这可关系到以后的紧俏货源倾斜政策！"
+                </div>
+                
+                <p><strong>结果：</strong> 你因为坚守原则，不仅避免了处罚，还获得了荣誉和潜在的经营优势。</p>
+                
+                <button class="restart-btn" onclick="restartStory()">重新开始故事</button>
+            </div>
+            
+            <div id="outcome1b" class="outcome negative" style="display: none;">
+                <h3>❌ 心动应允 - 错误选择！</h3>
+                <p>你暗自窃喜做成了这笔大生意，把店里所有的"中华"都卖给了那个陌生人。</p>
+                
+                <p>然而，好景不长。两周后，客户经理小陈和市场监管员一同上门，神情严肃。</p>
+                
+                <div class="dialogue">
+                    <span class="character">小陈：</span>"李老板，根据系统监控和市场反馈，你店里的卷烟条包码出现在外地市场，存在真烟异常流动行为。同时，我们接到举报，你此前有溢价销售的行为。根据《诚信经营互助小组公约》和公司规定，我们将对你的档位进行下调，并暂停部分紧俏货源的供应一个月。"
+                </div>
+                
+                <p>你如遭雷击，档位下降意味着长期收入受损，损失远大于当时那点"快钱"。你后悔莫及。</p>
+                
+                <p><strong>结果：</strong> 因违规经营受到处罚，经营受损。</p>
+                
+                <button class="restart-btn" onclick="restartStory()">重新开始故事</button>
+            </div>
+            
+            <div id="outcome2a" class="outcome positive" style="display: none;">
+                <h3>👍 规范操作 - 正确选择！</h3>
+                <p>你礼貌地要求男孩出示身份证件，他支支吾吾拿不出来，最终承认自己还未满18岁。</p>
+                
+                <div class="dialogue">
+                    <span class="character">你：</span>"同学，根据法律规定，我们不能向未成年人销售烟草制品。吸烟有害健康，等你长大了再考虑吧。"
+                </div>
+                
+                <p>男孩有些不好意思地离开了。第二天，市场监管部门进行暗访检查，对你的规范操作给予了表扬。</p>
+                
+                <p><strong>结果：</strong> 遵守法律法规，避免了潜在的处罚风险。</p>
+                
+                <button class="restart-btn" onclick="restartStory()">重新开始故事</button>
+            </div>
+            
+            <div id="outcome2b" class="outcome negative" style="display: none;">
+                <h3>❌ 违规销售 - 错误选择！</h3>
+                <p>你觉得多一事不如少一事，把烟卖给了这个男孩。</p>
+                
+                <p>一周后，男孩的家长找到店里，非常生气地指责你向未成年人售烟。同时，市场监管部门也接到了举报。</p>
+                
+                <div class="dialogue">
+                    <span class="character">监管人员：</span>"根据《未成年人保护法》第五十九条规定，向未成年人销售烟草制品，可以处五万元以下罚款，情节严重的，责令停业整顿或吊销许可证。"
+                </div>
+                
+                <p><strong>结果：</strong> 面临行政处罚，声誉受损。</p>
+                
+                <button class="restart-btn" onclick="restartStory()">重新开始故事</button>
+            </div>
+            
+            <div id="outcome3a" class="outcome positive" style="display: none;">
+                <h3>👍 规范办理 - 正确选择！</h3>
+                <p>你抽时间亲自前往烟草专卖局办理许可证延续手续，虽然花费了一些时间，但顺利完成了延续。</p>
+                
+                <p>在办理过程中，你还向工作人员咨询了最新的政策法规，学到了很多有用的知识。</p>
+                
+                <p><strong>结果：</strong> 合法合规完成许可证延续，经营不受影响。</p>
+                
+                <button class="restart-btn" onclick="restartStory()">重新开始故事</button>
+            </div>
+            
+            <div id="outcome3b" class="outcome negative" style="display: none;">
+                <h3>❌ 违规代办 - 错误选择！</h3>
+                <p>你找了中介代办许可证延续，虽然省了时间，但中介使用了虚假材料。</p>
+                
+                <p>烟草专卖局在审核时发现了问题，不仅驳回了你的延续申请，还因提供虚假材料对你进行了处罚。</p>
+                
+                <div class="dialogue">
+                    <span class="character">监管人员：</span>"使用虚假材料申请许可证延续是严重违法行为，你的许可证将不予延续，并面临进一步处罚。"
+                </div>
+                
+                <p><strong>结果：</strong> 许可证无法延续，面临行政处罚。</p>
+                
+                <button class="restart-btn" onclick="restartStory()">重新开始故事</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 显示指定场景
+        function showScene(sceneId) {
+            // 隐藏所有场景
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.style.display = 'none';
+            });
+            
+            // 隐藏所有结局
+            document.querySelectorAll('.outcome').forEach(outcome => {
+                outcome.style.display = 'none';
+            });
+            
+            // 显示选中的场景
+            document.getElementById(sceneId).style.display = 'block';
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+        
+        // 显示指定结局
+        function showOutcome(outcomeId) {
+            // 隐藏所有场景
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.style.display = 'none';
+            });
+            
+            // 隐藏所有结局
+            document.querySelectorAll('.outcome').forEach(outcome => {
+                outcome.style.display = 'none';
+            });
+            
+            // 显示选中的结局
+            document.getElementById(outcomeId).style.display = 'block';
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+        
+        // 重新开始故事
+        function restartStory() {
+            // 隐藏所有场景和结局
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.style.display = 'none';
+            });
+            
+            document.querySelectorAll('.outcome').forEach(outcome => {
+                outcome.style.display = 'none';
+            });
+            
+            // 显示开场场景
+            document.getElementById('opening-scene').style.display = 'block';
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+        
+        // 初始化显示开场
+        document.getElementById('opening-scene').style.display = 'block';
+        
+        // 添加微信分享提示
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检测是否在微信中打开
+            function isWeChat() {
+                return /MicroMessenger/i.test(navigator.userAgent);
+            }
+            
+            if (isWeChat()) {
+                console.log("在微信中打开");
+                // 可以添加微信特定的功能
+            }
+        });
+    </script>
+</body>
+</html>
